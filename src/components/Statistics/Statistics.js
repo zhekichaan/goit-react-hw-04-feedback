@@ -1,3 +1,4 @@
+import styled from "styled-components"
 
 export const Statistics = ({
     good,
@@ -7,12 +8,16 @@ export const Statistics = ({
     positivePercentage
 }) => {
     return (
-        <ul>
+        <StatisticsWrapper>
             <li>Good: {good}</li>
             <li>Neutral: {neutral}</li>
             <li>Bad: {bad}</li>
             <li>Total: {total}</li>
             <li>Positive feedback: {positivePercentage}%</li>
-        </ul>
+        </StatisticsWrapper>
     )
 }
+
+const StatisticsWrapper = styled.ul`
+    list-style: none;
+`
