@@ -1,7 +1,8 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import PropTypes from 'prop-types';
+
 
 export const FeedbackOptions = ({
-    options,
     onLeaveFeedback
 }) => {
     return (
@@ -11,6 +12,10 @@ export const FeedbackOptions = ({
                 <button onClick={onLeaveFeedback}>Bad</button>
             </FeedbackWrapper>
     )
+}
+
+FeedbackOptions.propTypes = {
+    onLeaveFeedback: PropTypes.func.isRequired
 }
 
 const FeedbackWrapper = styled.div`
