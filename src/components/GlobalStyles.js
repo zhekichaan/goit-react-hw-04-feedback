@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   ul {
+    list-style: none;
     padding: 0px;
   }
   button {

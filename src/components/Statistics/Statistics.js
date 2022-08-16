@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import PropTypes from 'prop-types';
 
 export const Statistics = ({
@@ -9,13 +8,13 @@ export const Statistics = ({
     positivePercentage
 }) => {
     return (
-        <StatisticsWrapper>
+        <ul>
             <li>Good: {good}</li>
             <li>Neutral: {neutral}</li>
             <li>Bad: {bad}</li>
             <li>Total: {total}</li>
             <li>Positive feedback: {positivePercentage}%</li>
-        </StatisticsWrapper>
+        </ul>
     )
 }
 
@@ -26,7 +25,3 @@ Statistics.propTypes = {
     total: PropTypes.number.isRequired,
     positivePercentage: PropTypes.number.isRequired
 }
-
-const StatisticsWrapper = styled.ul`
-    list-style: none;
-`

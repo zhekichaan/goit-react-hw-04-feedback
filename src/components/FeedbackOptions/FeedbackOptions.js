@@ -1,6 +1,5 @@
-import styled from "styled-components";
 import PropTypes from 'prop-types';
-
+import { FeedbackWrapper } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({
     options,
@@ -26,7 +25,3 @@ FeedbackOptions.propTypes = {
     onLeaveFeedback: PropTypes.func.isRequired
 }
 
-const FeedbackWrapper = styled.div`
-    display: flex;
-    gap: 8px;
-`
