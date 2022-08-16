@@ -3,13 +3,21 @@ import PropTypes from 'prop-types';
 
 
 export const FeedbackOptions = ({
+    options,
     onLeaveFeedback
 }) => {
     return (
             <FeedbackWrapper>
-                <button onClick={onLeaveFeedback}>Good</button>
-                <button onClick={onLeaveFeedback}>Neutral</button>
-                <button onClick={onLeaveFeedback}>Bad</button>
+                {Object.keys(options).map(option => (
+                    <button
+                        key={option}
+                        type="button"
+                        name={option}
+                        onClick={() => onLeaveFeedback(option)}
+                    >
+                    {option.charAt(0).toUpperCase() + option.slice(1)}
+                    </button>
+                ))}
             </FeedbackWrapper>
     )
 }

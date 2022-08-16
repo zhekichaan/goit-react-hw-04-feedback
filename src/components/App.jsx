@@ -13,21 +13,11 @@ export class App extends Component {
     bad: 0
   }
 
-  onLeaveFeedback = e => {
-    if(e.currentTarget.textContent === "Good") {
-      this.setState({
-        good: this.state.good +1
-      })
-    } else if(e.currentTarget.textContent === "Neutral") {
-      this.setState({
-        neutral: this.state.neutral +1
-      })
-    } else {
-      this.setState({
-        bad: this.state.bad +1
-    })
-  }
-}
+  onLeaveFeedback = option => {
+    this.setState(state => ({
+      [option]: state[option] + 1,
+    }));
+  };
 
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad
@@ -41,7 +31,7 @@ export class App extends Component {
     return (
           <Box p="16px">
             <Section title="Please leave feedback">
-              <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback}></FeedbackOptions>
+              <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback}></FeedbackOptions>
             </Section>
             <Section title="Statistics">
               {this.countTotalFeedback() ? <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()} /> : <Notification message="There is no feedback" />}
