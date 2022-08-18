@@ -6,22 +6,23 @@ export const FeedbackOptions = ({
     onLeaveFeedback
 }) => {
     return (
-            <FeedbackWrapper>
-                {Object.keys(options).map(option => (
-                    <button
-                        key={option}
-                        type="button"
-                        name={option}
-                        onClick={() => onLeaveFeedback(option)}
-                    >
-                    {option.charAt(0).toUpperCase() + option.slice(1)}
-                    </button>
-                ))}
-            </FeedbackWrapper>
+        <FeedbackWrapper>
+            {options.map(option => (
+                <button
+                    key={option}
+                    type="button"
+                    name={option}
+                    onClick={() => onLeaveFeedback(option)}
+                >
+                {option.charAt(0).toUpperCase() + option.slice(1)}
+                </button>
+            ))}
+        </FeedbackWrapper>
     )
 }
 
 FeedbackOptions.propTypes = {
+    options: PropTypes.array.isRequired,
     onLeaveFeedback: PropTypes.func.isRequired
 }
 
